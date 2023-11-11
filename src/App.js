@@ -1,10 +1,19 @@
 import logo from './logo.svg';
 import './App.css';
 
+
+function Heading() {
+  let title = 'heading';
+  return (
+    <h1>{title}</h1>
+  );
+}
+
 function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <Heading />
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Fuck <code>src/App.js</code> and save to reload.
@@ -21,5 +30,7 @@ function App() {
     </div>
   );
 }
+
+
 
 export default App;
