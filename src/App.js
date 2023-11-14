@@ -1,6 +1,11 @@
 import { createElement } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Nav from './components/Nav';
+import Intro1 from './components/Intro1';
+import Intro2 from './components/Intro2';
+import Intro3 from './components/Intro3';
+import Promo from './components/Promo';
 
 
 function Heading(props) {
@@ -15,8 +20,8 @@ function Heading(props) {
   //   '. Welcome!'
   // );
 
-  var owner = props.owner+' ';
-  var title= props.title+' ';
+  var owner = props.owner + ' ';
+  var title = props.title + ' ';
   return createElement(
     'h1',
     { className: 'hello', id: 'hello' },
@@ -35,17 +40,27 @@ function Greeting({ name }) {
   // );
   return createElement(
     'h1',
-    {className:'test'},
-    'welcome ' ,createElement('i',null,name), ' man'
+    { className: 'test' },
+    'welcome ', createElement('i', null, name), ' man'
   )
 }
 
 function App() {
   return (
     <div className="App">
+      <Nav />
       <header className="App-header">
-        <Heading title='Hello' owner='Hossein'  />
+        <Heading title='Hello' owner='Hossein' />
         <Greeting name="Hossein" />
+        <Intro1>
+          <Intro2 number='5' fruit='apple' />
+          <Intro2 number='2' fruit='peer' />
+        </Intro1>
+
+        <Intro1 children={<Intro2 number='0' fruit='benana' />}>
+        </Intro1>
+        <Intro3 children='ssss' />
+        <Intro3>TEST</Intro3>
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Fuck <code>src/App.js</code> and save to reload.
@@ -59,6 +74,8 @@ function App() {
           Learn React
         </a>
       </header>
+
+      <Promo heading="Heading of component" promoSubHeading="Sub heading locate here and style is mentioned in the component as the oblect which assign for the h1"/>
     </div>
   );
 }
