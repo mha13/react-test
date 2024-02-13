@@ -41,11 +41,21 @@ const Greeting = ({ name }) => {
   //     <i>{name}</i>. Welcome!
   //   </h1>
   // );
-  return createElement(
-    'h1',
-    { className: 'test' },
-    'welcome ', createElement('i', null, name), ' man'
-  )
+  // return createElement(
+  //   'h1',
+  //   { className: 'test' },
+  //   'welcome ', createElement('i', null, name), ' man'
+  // )
+  // var elements;
+  // ['Reza', 'JJ', 'Ali'].forEach(item => {
+  //   elements=<h1 className='greeting'>{item}</h1>+ elements;
+  // });
+
+  var elements = ['Reza', 'JJ', 'Ali'].map((item, index) => (
+    <h1 key={index} className='greeting'> WELCOME {item+' from '+name} !</h1>
+  ));
+  
+  return <div>{elements}</div>;
 }
 
 
@@ -63,8 +73,16 @@ const App = () => {
           <Intro2 number='2' fruit='peer' />
         </Intro1>
 
-        <Intro1 children={<Intro2 number='0' fruit='benana' />}>
+        <Intro1 children={<Intro2 number='2' fruit='benana' />}>
         </Intro1>
+
+
+        <Intro1>
+          <Intro2 number='3' fruit='benana' />
+          <Intro2 number='2' fruit='orange' />
+          <Intro2 number='2' fruit='orange' />
+        </Intro1>
+
         <Intro3 children='ssss' />
         <Intro3>TEST</Intro3>
         <img src={logo} className="App-logo" alt="logo" />
@@ -83,7 +101,7 @@ const App = () => {
 
       <Promo heading="Heading of component" promoSubHeading="Sub heading locate here and style is mentioned in the component as the oblect which assign for the h1" />
 
-      <Example toggleBoolean={!boolType} math={2*(10+2)} str={str1+' Enghlish'} />
+      <Example toggleBoolean={!boolType} math={2 * (10 + 2)} str={str1 + ' Enghlish'} />
     </div>
   );
 }
