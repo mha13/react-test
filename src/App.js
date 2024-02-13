@@ -6,9 +6,10 @@ import Intro1 from './components/Intro1';
 import Intro2 from './components/Intro2';
 import Intro3 from './components/Intro3';
 import Promo from './components/Promo';
+import Example from './components/Example';
 
 
-function Heading(props) {
+const Heading = props => {
   // return (
   //   <h1>{props.title}</h1>
   // );
@@ -22,17 +23,19 @@ function Heading(props) {
 
   var owner = props.owner + ' ';
   var title = props.title + ' ';
-  return createElement(
-    'h1',
-    { className: 'hello', id: 'hello' },
-    title,
-    createElement('i', null, owner),
-    '!'
-  );
+  // return createElement(
+  //   'h1',
+  //   { className: 'hello', id: 'hello' },
+  //   title,
+  //   createElement('i', null, owner),
+  //   '!'
+  // );
+
+  return (<h1 className='hello' id='hello'>{title} <i>{owner}</i> ?</h1>);
 }
 
 
-function Greeting({ name }) {
+const Greeting = ({ name }) => {
   // return (
   //   <h1 className="greeting">
   //     <i>{name}</i>. Welcome!
@@ -45,7 +48,10 @@ function Greeting({ name }) {
   )
 }
 
-function App() {
+
+const boolType = false;
+const str1 = "just";
+const App = () => {
   return (
     <div className="App">
       <Nav />
@@ -75,7 +81,9 @@ function App() {
         </a>
       </header>
 
-      <Promo heading="Heading of component" promoSubHeading="Sub heading locate here and style is mentioned in the component as the oblect which assign for the h1"/>
+      <Promo heading="Heading of component" promoSubHeading="Sub heading locate here and style is mentioned in the component as the oblect which assign for the h1" />
+
+      <Example toggleBoolean={!boolType} math={2*(10+2)} str={str1+' Enghlish'} />
     </div>
   );
 }

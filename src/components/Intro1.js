@@ -8,6 +8,7 @@ function Intro1(props) {
     }
     return (
         <h3 style={shape}>
+        LISTS
             {props.children}
         </h3>
     );
